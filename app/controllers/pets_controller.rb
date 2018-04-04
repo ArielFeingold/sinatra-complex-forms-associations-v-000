@@ -36,6 +36,7 @@ class PetsController < ApplicationController
       if params["owner"]["name"] != ""
         @owner = Owner.create({name: params["owner_name"]})
         @pet.owner_id = @owner.id
+        @pet.update
       end
     redirect to "pets/#{@pet.id}"
   end
